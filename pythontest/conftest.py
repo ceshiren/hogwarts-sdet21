@@ -3,11 +3,15 @@ __author__ = 'hogwarts_xixi'
 """
 
 # 一个功能点封装成一个fixture
+import os
+import sys
 import time
 
 import pytest
 
 # 定义fixture,获取 calc对象
+import yaml
+
 from pythoncode.calculator import Calculator
 
 
@@ -47,7 +51,6 @@ def manage_logs(request):
 
     now = time.strftime("%Y-%m-%d_%H-%M-%S")
     log_name = './logs/' + now + '.logs'
-
     request.config.pluginmanager.get_plugin("logging-plugin") \
         .set_log_path(log_name)
 
@@ -67,3 +70,4 @@ def pytest_collection_modifyitems(items):
     for item in items:
         item.name = item.name.encode("utf-8").decode("unicode_escape")
         item._nodeid = item.nodeid.encode("utf-8").decode("unicode_escape")
+

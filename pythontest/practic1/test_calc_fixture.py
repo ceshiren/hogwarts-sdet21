@@ -25,6 +25,9 @@ def get_data(level):
         add_datas = datas.get("add")
         return (add_datas.get(level).get("datas"), add_datas.get(level).get("ids"))
 
+@pytest.fixture()
+def get_addP0_data():
+    pass
 
 class TestCalculator:
     add_P0_data, add_P0_ids = get_data("P0")

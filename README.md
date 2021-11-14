@@ -17,7 +17,7 @@
   - 测试步骤的数据驱动
   - PO的数据驱动
 
-## fixture的用法与setup 区别
+## fixture的用法与 setup 区别
 
 - 命名灵活，任何命名，不要以 test_开头
 - fixture 可以以参数的形式传递到测试用例中
@@ -26,6 +26,7 @@
 - autouse 参数可以使fixture 自动执行
 - 作用域（session>module>class>function）
 - 在测试用例参数化里的位置，可以随便放，前面后面都可以。
+- 如果想要在测试用例中使用fixture的返回数据，就要把fixture 名字传递到测试方法的参数列表中。
 
 ## conftest.py
 
