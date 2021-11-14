@@ -25,6 +25,7 @@
 - 一条用例可以使用多个fixture 作为前置条件
 - autouse 参数可以使fixture 自动执行
 - 作用域（session>module>class>function）
+- 在测试用例参数化里的位置，可以随便放，前面后面都可以。
 
 ## conftest.py
 
