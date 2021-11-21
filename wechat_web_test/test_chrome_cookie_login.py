@@ -18,7 +18,7 @@ class TestCookieLogin:
         cookie = self.drvier.get_cookies()
         # 4. 将cookie存入一个可持久存储的地方，文件
         # 打开文件的时候添加写入权限
-        with open("cookie.yaml", "w") as f:
+        with open("data/cookie.yaml", "w") as f:
             # 第一个参数是要写入的数据
             yaml.safe_dump(cookie, f)
 
@@ -26,7 +26,7 @@ class TestCookieLogin:
         # 1. 访问企业微信主页面
         self.drvier.get("https://work.weixin.qq.com/wework_admin/frame#contacts")
         # 2. 定义cookie，cookie信息从已经写入的cookie文件中获取
-        cookie = yaml.safe_load(open("cookie.yaml"))
+        cookie = yaml.safe_load(open("data/cookie.yaml"))
         # 3. 植入cookie
         for c in cookie:
             self.drvier.add_cookie(c)
