@@ -1,3 +1,4 @@
+import os
 from time import sleep
 
 from selenium import webdriver
@@ -7,7 +8,14 @@ from selenium.webdriver.common.by import By
 
 class TestCeshiren:
     def setup_class(self):
-        self.driver = webdriver.Firefox()
+        browser = os.getenv("env")
+        if browser == "firefox":
+            self.driver = webdriver.Firefox()
+        elif browser == "edge":
+            self.driver = webdriver.Edge()
+        else:
+            self.driver = webdriver.Chrome()
+
         self.driver.get("https://ceshiren.com")
         self.driver.implicitly_wait(10)
 
